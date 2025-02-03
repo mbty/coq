@@ -638,6 +638,9 @@ GRAMMAR EXTEND Gram
           { let (oc, c) = c in
           let p,cl = merge_occurrences loc cl oc in
           CAst.make ~loc @@ TacAtom (TacChange (false,p,c,cl)) }
+
+      (* Hello world plugin - prints "Hello, world!" and that's it *)
+      | IDENT "hello_world" -> { CAst.make (TacId [MsgString "Hello, world!"]) }
     ] ]
   ;
 END
